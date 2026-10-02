@@ -1,0 +1,32 @@
+version: "2.0"
+services:
+  web:
+    image: ghcr.io/bootdanniel/nexus-proxy:latest
+    expose:
+      - port: 8080
+        as: 80
+        to:
+          - global: true
+        accept:
+          - nexustvplayofc.de5.net
+profiles:
+  compute:
+    web:
+      resources:
+        cpu:
+          units: 1.0
+        memory:
+          size: 1Gi
+        storage:
+          - size: 2Gi
+  placement:
+    akash:
+      pricing:
+        web:
+          denom: uakt
+          amount: 10000
+deployment:
+  web:
+    akash:
+      profile: web
+      count: 1
