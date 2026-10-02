@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nexustvplay - Filmes e Canais ao Vivo</title>
+<meta name="description" content="nexustvplay - Filmes dublados e canais ao vivo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/filmes.css">
+<link rel="stylesheet" href="css/home.css">
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13"></script>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0a84ff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="nexustvplay">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192.png">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <i class="fa-solid fa-satellite-dish"></i>
+      <span>nexus<strong>tvplay</strong></span>
+    </a>
+    <div class="header-right">
+      <button class="install-btn" id="installBtn" style="display:none">
+        <i class="fa-solid fa-download"></i> Instalar
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="telaFilmes">
+  <div class="container">
+    <div class="filmes-header">
+      <div class="filmes-title-row">
+        <h1>Filmes</h1>
+        <button class="mode-btn" id="btnModoFilmes" data-modo="filmes">
+          <span class="tv-emoji">📺</span>
+          <span>Canais ao Vivo</span>
+        </button>
+      </div>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchFilmesHome" placeholder="Pesquisar filme...">
+        <button class="search-clear" id="searchFilmesClear" style="display:none"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+
+    <div id="carrosséisContainer"></div>
+
+    <div id="resultadoBuscaFilmes" style="display:none">
+      <h2 class="section-title">Resultados</h2>
+      <div class="grid-filmes" id="gridFilmesBusca"></div>
+      <p class="empty" id="emptyFilmes" style="display:none">Nenhum filme encontrado.</p>
+    </div>
+
+    <div class="load-more-wrap" style="display:none">
+      <button class="load-more" id="btnLoadMore" style="display:none">
+        <i class="fa-solid fa-arrow-down"></i> Carregar mais filmes
+      </button>
+    </div>
+  </div>
+</main>
+
+<main id="telaCanais" style="display:none">
+  <div class="container" style="padding-top:20px">
+    <button class="mode-btn" id="btnVoltarFilmes" style="margin-bottom:14px">
+      <span class="tv-emoji">🎬</span>
+      <span>Voltar para Filmes</span>
+    </button>
+  </div>
+  <section class="section fav-section" id="favSection" style="display:none">
+    <div class="container">
+      <h2 class="section-title"><i class="fa-solid fa-star" style="color:#ffd700;margin-right:8px"></i> Meus Favoritos <span class="count-badge" id="favCount">0</span></h2>
+      <div class="grid" id="favGrid"></div>
+    </div>
+  </section>
+
+  <section class="section hist-section" id="histSection" style="display:none">
+    <div class="container">
+      <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left" style="color:var(--cyan);margin-right:8px"></i> Continuar Assistindo</h2>
+      <div class="carousel" id="histCarousel"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title" id="tituloCategoria">Todos os Canais</h2>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="search" placeholder="Pesquisar canal...">
+          <button class="search-clear" id="searchClear" style="display:none"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+
+      <div class="categorias" id="categorias"></div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" style="display:none">Nenhum canal encontrado.</p>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    <div class="player-wrap">
+      <div class="server-switch" id="serverSwitch" style="display:none"></div>
+      <button class="fs-btn" id="fsBtn" title="Tela cheia"><i class="fa-solid fa-expand"></i></button>
+      <div class="rotate-hint" id="rotateHint"><i class="fa-solid fa-rotate"></i> Gire o celular para tela cheia</div>
+      <video id="player" controls playsinline webkit-playsinline controlsList="nodownload noremoteplayback noplaybackrate" disablePictureInPicture oncontextmenu="return false"></video>
+      <div class="player-loading" id="playerLoading">
+        <div class="spinner"></div>
+        <p>Carregando canal...</p>
+      </div>
+      <div class="player-error" id="playerError" style="display:none">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>Não foi possível carregar.</p>
+        <small>Tente outro título.</small>
+      </div>
+    </div>
+    <div class="modal-info">
+      <h3 id="modalTitle">Título</h3>
+      <p id="modalMeta" style="display:none;color:var(--cyan);font-size:.8rem;font-weight:700;margin-top:6px"></p>
+      <p id="modalSinopse" style="display:none;color:var(--muted);font-size:.85rem;margin-top:12px;line-height:1.5"></p>
+      <button class="fav-btn-modal" id="favBtnModal">
+        <i class="fa-regular fa-star"></i> <span>Adicionar aos Favoritos</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="/" class="logo">
+      <i class="fa-solid fa-satellite-dish"></i>
+      <span>nexus<strong>tvplay</strong></span>
+    </a>
+    <div class="footer-links">
+      <a href="/termos.html">Termos de Uso</a>
+      <a href="/privacidade.html">Privacidade</a>
+      <a href="/dmca.html">DMCA</a>
+    </div>
+  </div>
+  <p class="disclaimer">© 2026 nexustvplay. Não hospedamos nenhum conteúdo. Todos os títulos são fornecidos por terceiros.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/filmes.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById('installBtn');
+  if (btn) btn.style.display = 'inline-flex';
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('installBtn');
+  if (!btn) return;
+  btn.addEventListener('click', async () => {
+    if (!deferredPrompt) { alert('Abra o menu do navegador e escolha "Instalar app".'); return; }
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    if (outcome === 'accepted') btn.style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>

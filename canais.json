@@ -1,0 +1,136 @@
+[
+  {
+    "id": "globosp",
+    "nome": "Globo SP",
+    "categoria": "Abertos",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/globo-br.png",
+    "servidores": [
+      {
+        "nome": "EmbedTV",
+        "url": "https://52d080a3e172c33fd6886a37e7.s23-cloudfront-net.lat/8e8e8b142192ea65/globosp.txt",
+        "referer": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat/globosp",
+        "origin": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat"
+      },
+      {
+        "nome": "2",
+        "url": "https://ywppjexvlyulasvmgzjdftfjikth1709oq80soveui6lkbi2iza2zf.cdn10embed.xyz/globosp/index.m3u8",
+        "referer": "",
+        "origin": ""
+      }
+    ]
+  },
+  {
+    "id": "sportv",
+    "nome": "SporTV",
+    "categoria": "Esportes",
+    "logo": "https://vipcanais.net/images/sportv.png",
+    "servidores": [
+      {
+        "nome": "EmbedTV",
+        "url": "https://52d080a3e172c33fd6886a37e7.s23-cloudfront-net.lat/8e8e8b142192ea65/sportv.txt",
+        "referer": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat/sportv",
+        "origin": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat"
+      },
+      {
+        "nome": "2",
+        "url": "https://ywppjexvlyulasvmgzjdftfjikth1709oq80soveui6lkbi2iza2zf.cdn10embed.xyz/sportv/index.m3u8",
+        "referer": "",
+        "origin": ""
+      }
+    ]
+  },
+  {
+    "id": "espn",
+    "nome": "ESPN",
+    "categoria": "Esportes",
+    "logo": "https://vipcanais.net/images/espn.png",
+    "servidores": [
+      {
+        "nome": "EmbedTV",
+        "url": "https://52d080a3e172c33fd6886a37e7.s23-cloudfront-net.lat/8e8e8b142192ea65/espn.txt",
+        "referer": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat/espn",
+        "origin": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat"
+      },
+      {
+        "nome": "2",
+        "url": "https://ywppjexvlyulasvmgzjdftfjikth1709oq80soveui6lkbi2iza2zf.cdn10embed.xyz/espn/index.m3u8",
+        "referer": "",
+        "origin": ""
+      }
+    ]
+  },
+  {
+    "id": "premiere",
+    "nome": "Premiere 1",
+    "categoria": "Esportes",
+    "logo": "https://vipcanais.net/images/premiereclubes.png",
+    "servidores": [
+      {
+        "nome": "EmbedTV",
+        "url": "https://52d080a3e172c33fd6886a37e7.s23-cloudfront-net.lat/8e8e8b142192ea65/premiere.txt",
+        "referer": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat/premiere",
+        "origin": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat"
+      }
+    ]
+  },
+  {
+    "id": "tnt",
+    "nome": "TNT",
+    "categoria": "Filmes e Séries",
+    "logo": "https://vipcanais.net/images/tnt.png",
+    "servidores": [
+      {
+        "nome": "EmbedTV",
+        "url": "https://52d080a3e172c33fd6886a37e7.s23-cloudfront-net.lat/8e8e8b142192ea65/tnt.txt",
+        "referer": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat/tnt",
+        "origin": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat"
+      },
+      {
+        "nome": "2",
+        "url": "https://ywppjexvlyulasvmgzjdftfjikth1709oq80soveui6lkbi2iza2zf.cdn10embed.xyz/tnt/index.m3u8",
+        "referer": "",
+        "origin": ""
+      }
+    ]
+  },
+  {
+    "id": "globonews",
+    "nome": "Globo News",
+    "categoria": "Notícias",
+    "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/globo-br.png",
+    "servidores": [
+      {
+        "nome": "EmbedTV",
+        "url": "https://52d080a3e172c33fd6886a37e7.s23-cloudfront-net.lat/8e8e8b142192ea65/globonews.txt",
+        "referer": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat/globonews",
+        "origin": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat"
+      },
+      {
+        "nome": "2",
+        "url": "https://ywppjexvlyulasvmgzjdftfjikth1709oq80soveui6lkbi2iza2zf.cdn10embed.xyz/globonews/index.m3u8",
+        "referer": "",
+        "origin": ""
+      }
+    ]
+  },
+  {
+    "id": "cartoonnetwork",
+    "nome": "Cartoon Network",
+    "categoria": "Infantil",
+    "logo": "https://vipcanais.net/images/cartoonnetwork.png",
+    "servidores": [
+      {
+        "nome": "EmbedTV",
+        "url": "https://52d080a3e172c33fd6886a37e7.s23-cloudfront-net.lat/8e8e8b142192ea65/cartoonnetwork.txt",
+        "referer": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat/cartoonnetwork",
+        "origin": "https://80ee2bb7c38d73faa4bf05567744a4ec.embedtv.lat"
+      },
+      {
+        "nome": "2",
+        "url": "https://ywppjexvlyulasvmgzjdftfjikth1709oq80soveui6lkbi2iza2zf.cdn10embed.xyz/cartoonnetwork/index.m3u8",
+        "referer": "",
+        "origin": ""
+      }
+    ]
+  }
+]
